@@ -59,7 +59,7 @@ milken <- "#0066CC"
 ## map cases per of pop
 map_cases_per_mil <- hcmap("custom/africa", data = data_graphic_latest, value = "cases_per_million",
       joinBy = c("iso-a3"), name = "Confirmed Cases per Million",
-      dataLabels = list(enabled = TRUE, format = '{point.name}'),
+      #dataLabels = list(enabled = TRUE, format = '{point.name}'),
       borderColor = "#FAFAFA", borderWidth = 0.1) %>%
      # tooltip = list(valueDecimals = 2, valuePrefix = "", valueSuffix = "")) %>%
       hc_tooltip(useHTML = TRUE, headerFormat = "", pointFormat = tltip) %>%
