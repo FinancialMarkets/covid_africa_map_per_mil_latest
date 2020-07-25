@@ -8,8 +8,8 @@ options(browser = "/usr/bin/firefox")
 
 data <- read_csv("../african_latest_data.csv")
 data$dateRep <- as.Date(data$dateRep, format="%d/%m/%Y")
-data$popData2018 <- data$popData2018 / 1000000
-data$cases_per_million <- data$cumulative_cases / data$popData2018
+data$popData2019 <- data$popData2019 / 1000000
+data$cases_per_million <- data$cumulative_cases / data$popData2019
 
 data_graphic <- data[, c("countryterritoryCode", "geoId", "dateRep", "countriesAndTerritories", "cases_per_million", "cumulative_cases", "cases", "deaths", "cumulative_deaths")]
 
@@ -55,6 +55,7 @@ carmine <- "#960018"
 dark_midnight_blue <- "#003366"
 white <- "#FFFFFF"
 milken <- "#0066CC"
+milken_red <- "#ff3333"
 
 ## map cases per of pop
 map_cases_per_mil <- hcmap("custom/africa", data = data_graphic_latest, value = "cases_per_million",
@@ -64,7 +65,7 @@ map_cases_per_mil <- hcmap("custom/africa", data = data_graphic_latest, value = 
      # tooltip = list(valueDecimals = 2, valuePrefix = "", valueSuffix = "")) %>%
       hc_tooltip(useHTML = TRUE, headerFormat = "", pointFormat = tltip) %>%
     hc_legend(align = "center", layout = "horizontal", verticalAlign = "middle", x = -160, y= 120, valueDecimals = 0) %>%
-    hc_colorAxis(minColor = "#FFFFFF", maxColor = milken,
+    hc_colorAxis(minColor = "#FFFFFF", maxColor = milken_red,
              type = "logarithmic")
   #    hc_legend(align = 'left') %>%
 #      hc_add_theme(hc_theme_google())
