@@ -11,7 +11,7 @@ data$dateRep <- as.Date(data$dateRep, format="%d/%m/%Y")
 data$popData2019 <- data$popData2019 / 1000000
 data$cases_per_million <- data$cumulative_cases / data$popData2019
 
-data_graphic <- data[, c("countryterritoryCode", "geoId", "dateRep", "countriesAndTerritories", "cases_per_million", "cumulative_cases", "cases", "deaths", "cumulative_deaths")]
+data_graphic <- data[, c("countryterritoryCode", "geoId", "dateRep", "countriesAndTerritories", "cases_per_million", "cumulative_cases", "cases_weekly", "deaths_weekly", "cumulative_deaths")]
 
 ## remove france
 
@@ -47,7 +47,7 @@ data_graphic_latest$int_ext_debt <- data_graphic_latest$DT.INT.DECT.EX.ZS.x
 ## graphic
 
 x <- c("Country", "New Cases Latest Day", "Total Number of Cases", "Number Cases Per Million", "Number of Deaths Latest Day", "Total Deaths")#, "Percent Pop. Over 65", "Percent Pop Urban", "Health Expenditure Per. Cap.", "Int Payment on External Debt (% exports)")
-y <- c( "{point.countriesAndTerritories}" , "{point.cases}", "{point.cumulative_cases}", sprintf("{point.%s:.2f}", c("cases_per_million")), "{point.deaths}", "{point.cumulative_deaths}")#))#, "per_pop_65", "pop_urban", "health_exp_per_cap", "int_ext_debt")))
+y <- c( "{point.countriesAndTerritories}" , "{point.cases_weekly}", "{point.cumulative_cases}", sprintf("{point.%s:.2f}", c("cases_per_million")), "{point.deaths_weekly}", "{point.cumulative_deaths}")#))#, "per_pop_65", "pop_urban", "health_exp_per_cap", "int_ext_debt")))
 
 tltip <- tooltip_table(x, y)
 
